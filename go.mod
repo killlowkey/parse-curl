@@ -1,4 +1,4 @@
-module parse-curl
+module github.com/killlowkey/parse-curl
 
 go 1.16
 

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	parseCurl "parse-curl"
+	parseCurl "github.com/killlowkey/parse-curl"
 )
 
 func main() {

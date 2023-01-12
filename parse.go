@@ -50,35 +50,27 @@ func Parse(curl string) (*Request, bool) {
 		switch true {
 		case isUrl(arg):
 			request.Url = arg
-			break
 
 		case arg == "-A" || arg == "--user-agent":
 			state = "user-agent"
-			break
 
 		case arg == "-H" || arg == "--header":
 			state = "header"
-			break
 
 		case arg == "-d" || arg == "--data" || arg == "--data-ascii" || arg == "--data-raw":
 			state = "data"
-			break
 
 		case arg == "-u" || arg == "--user":
 			state = "user"
-			break
 
 		case arg == "-I" || arg == "--head":
 			request.Method = "HEAD"
-			break
 
 		case arg == "-X" || arg == "--request":
 			state = "method"
-			break
 
 		case arg == "-b" || arg == "--cookie":
 			state = "cookie"
-			break
 
 		case len(arg) > 0:
 			switch state {
@@ -86,12 +78,10 @@ func Parse(curl string) (*Request, bool) {
 				fields := parseField(arg)
 				request.Header[fields[0]] = strings.TrimSpace(fields[1])
 				state = ""
-				break
 
 			case "user-agent":
 				request.Header["User-Agent"] = arg
 				state = ""
-				break
 
 			case "data":
 				if request.Method == "GET" || request.Method == "HEAD" {
@@ -109,23 +99,18 @@ func Parse(curl string) (*Request, bool) {
 				}
 
 				state = ""
-				break
 
 			case "user":
-				request.Header["Authorization"] = "Basic " +
-					base64.StdEncoding.EncodeToString([]byte(arg))
+				request.Header["Authorization"] = "Basic " + base64.StdEncoding.EncodeToString([]byte(arg))
 				state = ""
-				break
 
 			case "method":
 				request.Method = arg
 				state = ""
-				break
 
 			case "cookie":
 				request.Header["Cookie"] = arg
 				state = ""
-				break
 
 			default:
 				break

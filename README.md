@@ -1,7 +1,7 @@
 # parse-curl
-解析 curl 命令，返回一个表示请求的对象
+Parse curl commands, returning an object representing the request.
 
-## example
+## Example
 ```shell
 curl 'http://google.com/' \
 -H 'Accept-Encoding: gzip, deflate, sdch' \
@@ -29,5 +29,5 @@ out
 }
 ```
 
-## reference
+## Reference
 * https://github.com/tj/parse-curl.js
